@@ -39,4 +39,12 @@ console.log(typeof null);
 
 console.log("----------------------------------------");
 
-console.log("----------------------------------------");
+console.log("-----------let const var----------------");
+
+let age = 30;
+age = 32;
+
+const birthYear = 1990;
+// birthYear = 1991; ERROR
+// const emptyConst; ERROR
+
