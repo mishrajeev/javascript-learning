@@ -1,4 +1,4 @@
-//Ternary operator
+//Ternary operator produces an expression
 //  condition ? if true : if false
 //  condition ? if : else
 
@@ -18,3 +18,6 @@ if(age >= 18){
     myDrink2 = `Milk 🥛`;
 }
 console.log(`My drink is ${myDrink2}`);
+
+
+console.log(`My drink is ${age >= 18 ? `Beer 🍻` :`Milk 🥛`}`);
