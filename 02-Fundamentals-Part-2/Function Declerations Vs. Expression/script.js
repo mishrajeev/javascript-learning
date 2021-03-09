@@ -9,7 +9,7 @@ function calcAge1(birthYear) {
     return currentYear - birthYear;
 }
 
-const age1Is = `Age is ${calcAge1(1990)}`;
+const age1Is = `Age is ${calcAge1(1994)}`;
 console.log(age1Is);
 
 
@@ -21,7 +21,7 @@ const calcAge2 = function (birthYear) {
     return currentYear - birthYear;
 }
 
-const age2Is = `Age is ${calcAge2(1990)}`;
+const age2Is = `Age is ${calcAge2(1994)}`;
 console.log(age2Is);
 
 
