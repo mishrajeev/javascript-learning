@@ -100,6 +100,7 @@ const finishGame = function () {
 		.querySelector(`.player--${activePlayer}`)
 		.classList.toggle(`player--active`);
 	playing = false;
+	diceElement.classList.add(`hidden`);
 };
 
 newGameElement.addEventListener(`click`, newGame);
