@@ -23,6 +23,7 @@ const scoreElement = document.querySelector(`.score`);
 const highScoreElement = document.querySelector(`.highscore`);
 const messageElement = document.querySelector(`.message`);
 const secretNumberElement = document.querySelector(`.number`);
+const bodyElement = document.querySelector(`body`);
 
 const highMessage = `Too high 📈📈`;
 const lowMessage = `Too Low 📉📉`;
@@ -37,7 +38,7 @@ let highScore = 0;
 //-----Onload Start-----
 scoreElement.textContent = score;
 highScoreElement.textContent = highScore;
-secretNumberElement.textContent = secretNumber;
+//secretNumberElement.textContent = secretNumber;
 setMessageToUser(startMessage);
 //-----Onload End-----
 
@@ -69,8 +70,21 @@ function gameLost() {
     setMessageToUser(lostMessage);
 }
 
+function gameWon() {
+    //messageElement.textContent = wonMessage;
+    setMessageToUser(wonMessage);
+    setHighScore();
+    bodyElement.style.backgroundColor = `#60b347`;
+    secretNumberElement.style.width = `30rem`;
+
+}
+
 function setMessageToUser(message) {
     messageElement.textContent = message;
+}
+function invalidInput() {
+    //messageElement.textContent = invalidMessage;
+    setMessageToUser(invalidMessage);
 }
 
 document.querySelector(`.check`).addEventListener(`click`, function () {
@@ -78,10 +92,9 @@ document.querySelector(`.check`).addEventListener(`click`, function () {
     
     if (score > 0) {
         if (!guess || guess < 1 || guess > 20) {
-            messageElement.textContent = invalidMessage;
+            invalidInput();
         } else if (guess === secretNumber) {
-            messageElement.textContent = wonMessage;
-            setHighScore();
+            gameWon();
         } else if (guess > secretNumber) {
             highGuess();
             decreaseScore();
