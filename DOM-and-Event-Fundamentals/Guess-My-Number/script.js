@@ -4,20 +4,6 @@
     DOM is part of Web API
  */
 
-/*
-    document.querySelector(`.message`);
-    console.log(document.querySelector(`.message`));
-    console.log(document.querySelector(`.message`).textContent);
-    //ele.textContent = '';
-    console.log(document.querySelector(`.number`));
-    console.log(document.querySelector(`.score`));
-    document.querySelector(`.number`).textContent = 13;
-    document.querySelector(`.score`).textContent = 10;
-    document.querySelector(`.guess`).value = 10;
-    document.querySelector(`.message`).textContent = `🎉 Correct Number!`;
-*/
-
-
 const scoreElement = document.querySelector(`.score`);
 const highScoreElement = document.querySelector(`.highscore`);
 const messageElement = document.querySelector(`.message`);
@@ -30,7 +16,7 @@ const guessElement = document.querySelector(`.guess`);
 const highMessage = `Too high 📈📈`;
 const lowMessage = `Too Low 📉📉`;
 const lostMessage = `☠ You lost the game!!! Try Again 😪`;
-const invalidMessage = `Invalid Input!!! 😑 : Enter Number a between 1 and 20`;
+const invalidMessage = `Invalid Input!!! 😑 : Enter a number between 1 and 20`;
 const wonMessage = `🎉🎉🎉 Correct Number!!!`;
 const startMessage = `Start guessing...`;
 
@@ -41,19 +27,19 @@ let score = defaultScore;
 let highScore = 0;
 
 //-----Onload Start-----
-scoreElement.textContent = score;
-highScoreElement.textContent = highScore;
-//secretNumberElement.textContent = secretNumber;
-setMessageToUser(startMessage);
+window.onload = function(){
+    scoreElement.textContent = score;
+    highScoreElement.textContent = highScore;
+    setMessageToUser(startMessage);
+}
+
 //-----Onload End-----
 
 function lowGuess() {
-    //messageElement.textContent = lowMessage;
     setMessageToUser(lowMessage);
 }
 
 function highGuess() {
-    //messageElement.textContent = highMessage;
     setMessageToUser(highMessage);
 }
 
@@ -82,7 +68,6 @@ function gameLost() {
 }
 
 function gameWon() {
-    //messageElement.textContent = wonMessage;
     setMessageToUser(wonMessage);
     setHighScore();
     bodyElement.style.backgroundColor = `#60b347`;
@@ -119,11 +104,8 @@ checkButtonElement.addEventListener(`click`, function () {
             invalidInput();
         } else if (guess === secretNumber) {
             gameWon();
-        } else if (guess > secretNumber) {
-            highGuess();
-            decreaseScore();
-        } else if (guess < secretNumber) {
-            lowGuess();
+        } else if (guess !== secretNumber){
+            guess > secretNumber ? highGuess() : lowGuess();
             decreaseScore();
         }
     } else {
