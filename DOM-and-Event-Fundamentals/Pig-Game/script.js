@@ -14,7 +14,7 @@ const rollDiceElement = document.querySelector(`.btn--roll`);
 const newGameElement = document.querySelector(`.btn--new`);
 const holdElement = document.querySelector(`.btn--hold`);
 
-const finalScore = 2;
+const finalScore = 100;
 let currentScore = 0;
 let activePlayer = 0;
 let scores = [0, 0];
