@@ -12,7 +12,7 @@ const newGameElement = document.querySelector(`.btn--new`);
 const holdElement = document.querySelector(`.btn--hold`);
 /* 
 score0Element.textContent = 0;
-score1Element.textContent = 0;
+score1Element.textContent = 0; 
  */
 
 diceElement.classList.add(`hidden`);
@@ -26,4 +26,14 @@ const newGame = function () {
     
 }
 
+const rollDice = function(){
+    const randomNumber = generateDiceNumber();
+    
+}
+
+function generateDiceNumber (){
+    return Math.trunc(Math.random() * 6 ) + 1;
+}
+
+rollDiceElement.addEventListener(`click`, rollDice);
 newGameElement.addEventListener(`click`, newGame);
