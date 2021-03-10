@@ -28,16 +28,16 @@ currentScore0Element.textContent = currentScore;
 diceElement.classList.add(`hidden`);
 
 const newGame = function () {
+	activePlayer = 0;
+	diceElement.classList.add(`hidden`);
 	scores = [0, 0];
 	score0Element.textContent = scores[0];
 	score1Element.textContent = scores[1];
 	playing = true;
-	document
-		.querySelector(`.player--${activePlayer}`)
-		.classList.remove(`player--winner`);
-	document
-		.querySelector(`.player--${activePlayer}`)
-		.classList.add(`player--active`);
+	document.querySelector(`.player--0`).classList.remove(`player--winner`);
+	document.querySelector(`.player--0`).classList.add(`player--active`);
+	document.querySelector(`.player--1`).classList.remove(`player--winner`);
+	document.querySelector(`.player--1`).classList.remove(`player--active`);
 	resetCurrentScore();
 };
 
@@ -89,6 +89,7 @@ const switchPlayer = function () {
 	activePlayer = activePlayer === 0 ? 1 : 0;
 	player0Element.classList.toggle(`player--active`);
 	player1Element.classList.toggle(`player--active`);
+	diceElement.classList.add(`hidden`);
 	resetCurrentScore();
 };
 
