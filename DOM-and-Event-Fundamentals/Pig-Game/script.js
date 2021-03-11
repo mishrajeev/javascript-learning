@@ -15,30 +15,27 @@ const newGameElement = document.querySelector(`.btn--new`);
 const holdElement = document.querySelector(`.btn--hold`);
 
 const finalScore = 100;
-let currentScore = 0;
-let activePlayer = 0;
-let scores = [0, 0];
-let playing = true;
-
-score0Element.textContent = scores[0];
-score1Element.textContent = scores[1];
-currentScore1Element.textContent = currentScore;
-currentScore0Element.textContent = currentScore;
-
-diceElement.classList.add(`hidden`);
+let currentScore, activePlayer, scores, playing;
 
 const newGame = function () {
+	currentScore = 0;
 	activePlayer = 0;
-	diceElement.classList.add(`hidden`);
+	playing = true;
+
 	scores = [0, 0];
 	score0Element.textContent = scores[0];
 	score1Element.textContent = scores[1];
-	playing = true;
+
+	diceElement.classList.add(`hidden`);
 	document.querySelector(`.player--0`).classList.remove(`player--winner`);
 	document.querySelector(`.player--0`).classList.add(`player--active`);
 	document.querySelector(`.player--1`).classList.remove(`player--winner`);
 	document.querySelector(`.player--1`).classList.remove(`player--active`);
 	resetCurrentScore();
+};
+
+window.onload = function () {
+	newGame();
 };
 
 function resetCurrentScore() {
